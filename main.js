@@ -5,10 +5,24 @@ for(let i of [1, 2, 3]) {
 }
 
 class MyComponent extends Component {
+    constructor(){
+        super();
+        this.state = {
+            a: 1,
+            b: 2
+        }
+        this.onClick = this.onClick.bind(this);
+    }
+    onClick(){
+        this.state.a++;
+        this.rerender();
+    }
     render() {
+        console.log(this.state.a)
         return <div>
             <h1>my Component</h1>
-            {this.children}
+            <button onClick={this.onClick}>add</button>
+            <span>{this.state.a.toString()}</span>
         </div>
     }
 }
