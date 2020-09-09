@@ -14,8 +14,7 @@ class MyComponent extends Component {
         this.onClick = this.onClick.bind(this);
     }
     onClick(){
-        this.state.a++;
-        this.rerender();
+        this.setState({a: this.state.a + 1})
     }
     render() {
         console.log(this.state.a)
